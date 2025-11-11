@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'django_extensions',
     'fundraisers.apps.FundraisersConfig',
     'rest_framework',
     "django.contrib.admin",
