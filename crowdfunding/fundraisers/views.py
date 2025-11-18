@@ -6,13 +6,13 @@ from .models import Fundraiser, Pledge
 from .serializers import FundraiserSerializer, PledgeSerializer, FundraiserDetailSerializer
 
 class FundraiserList(APIView):
-    def get(self, request):
-        fundraisers = Fundraiser.objects.all()
-        serializer = FundraiserSerializer(fundraisers, many=True)
+    def get(self, request): # function name matching the HTTP requests
+        fundraisers = Fundraiser.objects.all() # model involved since the data from DB needs to be retrieved
+        serializer = FundraiserSerializer(fundraisers, many=True) # serializer: HTTP <-> JSON. To see each JSON structure that is created by sserializer, need to go and find the serializer related to this particular part in serializer.py 
         return Response(serializer.data)
     
     def post(self, request):
-        serializer = FundraiserSerializer(data=request.data)
+        serializer = FundraiserSerializer(data=request.data) # model involved since the data needs to be updated in DB based on the rules written in models.py
         if serializer.is_valid():
             serializer.save()
             return Response(

@@ -12,4 +12,4 @@ class PledgeSerializer(serializers.ModelSerializer):
         fields = '__all__'
     
 class FundraiserDetailSerializer(FundraiserSerializer):
-    pledges = PledgeSerializer(many=True, read_only=True)
+    pledges = PledgeSerializer(many=True, read_only=True) # underneath of FundraiserDetailSerializer because each pledge is included in each Fundraiser record in JSON
