@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
 class Fundraiser(models.Model):
     # each variable is a column in the database and its type (id is given by Django by default)
@@ -8,6 +9,11 @@ class Fundraiser(models.Model):
     image = models.URLField()
     is_open = models.BooleanField()
     date_created = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        related_name='owned_fundraisers'
+    )
 
 class Pledge(models.Model):
     amount = models.IntegerField()
@@ -15,6 +21,11 @@ class Pledge(models.Model):
     anonymous = models.BooleanField()
     fundraiser = models.ForeignKey(
         'Fundraiser',
+        on_delete=models.CASCADE,
+        related_name='pledges'
+    )
+    supporter = models.ForeignKey(
+        get_user_model(),
         on_delete=models.CASCADE,
         related_name='pledges'
     )
