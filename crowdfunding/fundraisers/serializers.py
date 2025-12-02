@@ -6,6 +6,7 @@ class FundraiserSerializer(serializers.ModelSerializer):
     class Meta:
         model = apps.get_model('fundraisers.Fundraiser')
         fields = '__all__'
+        # fileds = ["title", "goal", ...] -> Selectively decide the structure you want to return in views.py intead of all = '__all__'
 
 class PledgeSerializer(serializers.ModelSerializer):
     supporter = serializers.ReadOnlyField(source='supporter.id')
