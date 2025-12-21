@@ -17,14 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users.views import CustomAuthToken
-from django.http import HttpResponse
-
-def home(request):
-    return HttpResponse("Backend is running successfully")
 
 urlpatterns = [
-    path("", home),
-    path("fundraisers/", include("fundraisers.urls")),
-    path("users/", include("users.urls")),
-    path("api-token-auth/", CustomAuthToken.as_view(), name="api_token_auth"),
+    path("", include("fundraisers.urls")),
+    path('', include('users.urls')),
+    path('api-token-auth/', CustomAuthToken.as_view(), name='api_token_auth'),
 ]
