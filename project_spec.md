@@ -32,7 +32,7 @@ Your crowdfunding project must:
 - [x] Implement suitable update/delete functionality, e.g. should a fundraiser owner be allowed to update its description?
 - [x] Implement suitable permissions, e.g. who is allowed to delete a pledge?
 - [x] Return the relevant status codes for both successful and unsuccessful requests to the API.
-- [ ] Handle failed requests gracefully (e.g. you should have a custom 404 page rather than the default error page).
+- [x] Handle failed requests gracefully (e.g. you should have a custom 404 page rather than the default error page). - curretlty handled in urls.py
 - [x] Use Token Authentication, including an endpoint to obtain a token along with the current user's details.
 - [ ] Implement responsive design. (Front end - not included.)
 
