@@ -44,4 +44,4 @@ Link to the website: [SoothingNest](https://soothingnest-ffe15850dd46.herokuapp.
 
 ### ERD and DB Schema
 
-![ERD_DBschema](ERD_DBschema.png)
+![ERD_DBschema](<ERD_DBschema(non-alpha).png>)
