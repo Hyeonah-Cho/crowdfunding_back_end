@@ -40,7 +40,7 @@ Link to the website: [SoothingNest](https://soothingnest-ffe15850dd46.herokuapp.
 
 ### Insomnia Demonstration
 
-<video src="demo.mp4" autoplay loop muted playsinline></video>
+[![Demo](thumbnail.png)](https://github.com/Hyeonah-Cho/crowdfunding_back_end/blob/main/demo.mp4?raw=true)
 
 ### ERD and DB Schema
 
