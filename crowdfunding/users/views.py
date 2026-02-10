@@ -11,7 +11,7 @@ class CustomUserList(APIView):
     def get(self, request):
         users = CustomUser.objects.all()
         serializer = CustomUserSerializer(users, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
         serializer = CustomUserSerializer(data=request.data)
@@ -36,7 +36,7 @@ class CustomUserDetail(APIView):
     def get(self, request, pk):
         user = self.get_object(pk)
         serializer = CustomUserSerializer(user)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
 class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs): # overwrting the basic post() in the ObtainAuthToken class
@@ -48,8 +48,11 @@ class CustomAuthToken(ObtainAuthToken):
         user = serializer.validated_data['user']
         token, created = Token.objects.get_or_create(user=user)
 
-        return Response({
-            'token': token.key,
-            'user_id': user.id,
-            'email': user.email
-        })
+        return Response(
+            {
+                'token': token.key,
+                'user_id': user.id,
+                'email': user.email
+            },
+            status=status.HTTP_200_OK
+        )
